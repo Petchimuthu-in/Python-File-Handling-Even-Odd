@@ -1,0 +1,30 @@
+def check_even_odd(numbers):
+    even = []
+    odd = []
+
+    for num in numbers:
+        if num % 2 == 0:
+            even.append(num)
+        else:
+            odd.append(num)
+
+    return even, odd
+
+
+# Create numbers.txt and write numbers
+with open("numbers.txt", "w") as file:
+    file.write("10\n15\n20\n25\n30\n35")
+
+# Read numbers from the file
+numbers = []
+
+with open("numbers.txt", "r") as file:
+    for line in file:
+        numbers.append(int(line.strip()))
+# Check even and odd numbers
+even, odd = check_even_odd(numbers)
+# Save the output into another file
+with open("output.txt", "w") as file:
+    file.write("Even Numbers: " + str(even) + "\n")
+    file.write("Odd Numbers: " + str(odd))
+print("Output saved successfully in output.txt")
